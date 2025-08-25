@@ -15,9 +15,11 @@
 #include <iostream>
 #include <stack>
 #include <deque>
+#include <vector>
+#include <list>
 
  /*  
-        *   Stack are not a primary container they are based on
+        *   Stacks are not a primary container they are based on
         *   another one and restricts it so there is no iteration
         *   and no index access. by default it is deque but can be explicited
         *   another way. The data is actually stored inside that hidden container
@@ -36,19 +38,20 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
     public:
-        //this is supposed to mimic the iterator type of any itarable containers like vector
+        //this is supposed to mimic the iterator type of any iterable containers like vector
         //itv = vector<T>::iterator == itm = MutantStack<T>::iterator
         typedef typename std::stack<T>::container_type::iterator iterator;
-        MutantStack() {}
-        MutantStack(const MutantStack &src) {} //ToDo
+        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+        MutantStack() : std::stack<T>() {}
+        MutantStack(const MutantStack &src) : std::stack<T>(src) {}
         ~MutantStack() {}
-        MutantStack &operator=(const MutantStack &src)
+        MutantStack& operator=(const MutantStack& src)
         {
             if (this != &src)
             {
-                 //ToDo
+                std::stack<T>::operator=(src);
             }
-            return (*this);
+            return *this;
         }
         iterator begin()
         {
@@ -57,5 +60,13 @@ class MutantStack : public std::stack<T>
         iterator end()
         {
             return (this->c.end());
+        }
+        const_iterator begin()const
+        {
+            return this->c.begin();
+        }
+        const_iterator end()const
+        {
+            return this->c.end();
         }
 };
