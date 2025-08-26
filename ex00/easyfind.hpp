@@ -17,7 +17,6 @@
 #include <vector>
 #include <set>
 #include <list>
-#include <array>
 
 class ValueNotFound: public std::exception
 {

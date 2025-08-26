@@ -27,6 +27,20 @@ int main()
     numSet.insert(35);
     numSet.insert(36);
     numSet.insert(37);
+
+
+    std::cout << "numVector : ";
+    for (std::vector<int>::iterator it = numVector.begin(); it != numVector.end(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl << "numSet : ";
+    for (std::set<int>::const_iterator it = numSet.cbegin(); it != numSet.cend(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl << std::endl << std::endl;
+
     try
     {
         iti = ::easyfind(numVector, 65);
