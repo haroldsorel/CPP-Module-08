@@ -62,10 +62,18 @@ void    Span::printNumbers()const
         std::cout << (this->_span)[i] << std::endl;
 }
 
+
+/*
+    a span is the difference between 2 numbers. the smallest span is the smallest difference
+    between 2 numbers. this is found out knowing 2 numbers that are very close to each other.
+    5 and 9 has a span of 4, same as 10 and 14. To efficiently find these you can sort the container
+    and they will be side by side. Now instead of comparing one to every other you can just
+    compare adjacent pairs
+*/
 unsigned int Span::shortestSpan()const
 {
     std::vector<int>    sorted_copy;
-    unsigned int        span = INT_MAX;
+    unsigned int        span = std::numeric_limits<int>::max();
     unsigned int        diff;
 
     sorted_copy = this->_span;
@@ -81,6 +89,11 @@ unsigned int Span::shortestSpan()const
     return (span);
 }
 
+/*
+    a span is the difference between 2 numbers. The longest span is biggest
+    difference between 2 numbers. This is very easy. Find the biggest number
+    and the smallest number and you will find the biggest difference
+*/
 unsigned int Span::longestSpan()const
 {
     std::vector<int>::const_iterator max;
