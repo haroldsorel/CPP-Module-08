@@ -35,7 +35,7 @@ int main()
         std::cout << *it << " ";
     }
     std::cout << std::endl << "numSet : ";
-    for (std::set<int>::const_iterator it = numSet.cbegin(); it != numSet.cend(); ++it)
+    for (std::set<int>::const_iterator it = numSet.begin(); it != numSet.end(); ++it)
     {
         std::cout << *it << " ";
     }

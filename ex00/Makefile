@@ -3,7 +3,7 @@ SRC =  main.cpp
 OBJ = ${SRC:.cpp=.o}
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-CXX = $(CC)
+CXX = $(CC) $(CFLAGS)
 
 
 all : ${NAME}
